@@ -14,7 +14,9 @@ HTTP сервис,  который на вход получает данные �
 ## Развертывание с Docker
 
 - Клонируйте репозиторий:
-```git clone https://github.com/baikov/fastapi-bnipi
+
+```
+git clone https://github.com/baikov/fastapi-bnipi
 ```
 - Переименуйте файл `.env.example` в `.env`
 - Соберите и запустите контейнеры Docker: `docker compose up --build`
