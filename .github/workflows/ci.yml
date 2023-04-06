@@ -1,0 +1,59 @@
+name: CI
+
+# Enable Buildkit and let compose use it to speed up image building
+env:
+  DOCKER_BUILDKIT: 1
+  COMPOSE_DOCKER_CLI_BUILD: 1
+
+on:
+  pull_request:
+    branches: [ "master", "main" ]
+
+  push:
+    branches: [ "master", "main" ]
+
+concurrency:
+  group: ${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  linter:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout Code Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Install Poetry
+        run: |
+          curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python -
+          export PATH="$HOME/.poetry/bin:$PATH"
+          poetry --version
+
+      - name: Install dependencies
+        run: poetry install
+
+      - name: Run pre-commit
+        uses: pre-commit/action@v3.0.0
+
+  pytest:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout Code Repository
+        uses: actions/checkout@v3
+
+      - name: Build the Stack
+        run:  docker compose build
+
+      - name: Run Tests
+        run:  docker compose run pytest tests/
+
+      - name: Tear down the Stack
+        run:  docker compose down

@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "fastapi-bnipi"
+version = "0.1.0"
+description = "Test project for BNIPI"
+authors = ["Alexey Baikov <baikov52@gmail.com>"]
+readme = "README.md"
+# packages = [{include = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+fastapi = { extras = ["all"], version = "^0.95.0" }
+ruff = "^0.0.260"
+black = "^23.3.0"
+aioredis = "^2.0.1"
+pytest = "^7.2.2"
+pytest-asyncio = "^0.21.0"
+pre-commit = "^3.2.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.ruff]
+unfixable = ["F401", "F841"]
+
+[tool.pytest.ini_options]
+pythonpath = [".", "src"]
+asyncio_mode = "auto"
