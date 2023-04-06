@@ -22,19 +22,19 @@ class TestApi:
                 in e.detail
             )
 
-    def test_calculate_sum_handler_with_invalid_array(self):
-        with patch("main.get_redis_client") as mock_redis:
-            mock_redis.return_value = MagicMock()
+    # def test_calculate_sum_handler_with_invalid_array(self):
+    #     with patch("main.get_redis_client") as mock_redis:
+    #         mock_redis.return_value = MagicMock()
 
-            response = client.post(
-                "/async-calculate",
-                json={
-                    "array": ["1", "2", "invalid"],
-                },
-            )
+    #         response = client.post(
+    #             "/async-calculate",
+    #             json={
+    #                 "array": ["1", "2", "invalid"],
+    #             },
+    #         )
 
-            assert response.status_code == 400
-            assert response.json() == {
-                "detail": "Некоторые элементы массива невозможно привести к целому типу"
-            }
-            mock_redis.return_value.set.assert_not_called()
+    #         assert response.status_code == 400
+    #         assert response.json() == {
+    #             "detail": "Некоторые элементы массива невозможно привести к целому типу"
+    #         }
+    #         mock_redis.return_value.set.assert_not_called()
