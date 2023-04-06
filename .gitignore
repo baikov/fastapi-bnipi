@@ -1,0 +1,74 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+venv
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.env
+.build/
+develop-eggs/
+dist/
+eggs/
+lib/
+lib64/
+logs/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.ruff_cache
+
+# pytest
+.pytest_cache/
+pytest.ini
+
+# Coverage
+.coverage
+.coverage.*
+htmlcov/
+.coveralls.yml
+
+# Flake8
+.flake8
+
+# PyLint
+.pylint.d/
+pylint.log
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Type annotations
+*.pyi
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.pydevproject
+*.project
+*.settings/
+*~.nib
+*.bak
+*.tmp
+*.sublime-workspace
+*.sublime-project
+*.log
+
+# Miscellaneous
+docs/_build/
+bin/
+build/
+certs/
+out/
+.cache
