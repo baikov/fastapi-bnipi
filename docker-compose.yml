@@ -1,0 +1,13 @@
+version: '3.9'
+services:
+  fastapi:
+    build: .
+    container_name: fastapi_bnipi
+    ports:
+      - "8000:8000"
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:alpine
+    container_name: redis_bnipi
