@@ -9,7 +9,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.9"
 fastapi = { extras = ["all"], version = "^0.95.1" }
-ruff = "^0.0.263"
+ruff = "^0.0.271"
 black = "^23.3.0"
 aioredis = "^2.0.1"
 pytest = "^7.3.1"
