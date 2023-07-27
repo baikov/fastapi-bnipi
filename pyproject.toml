@@ -8,7 +8,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.9"
-fastapi = { extras = ["all"], version = "^0.95.1" }
+fastapi = { extras = ["all"], version = "^0.100.1" }
 ruff = "^0.0.263"
 black = "^23.3.0"
 aioredis = "^2.0.1"
